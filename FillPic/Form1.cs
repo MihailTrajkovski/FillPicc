@@ -16,8 +16,7 @@ namespace FillPic
     public partial class Form1 : Form
     {
         Timer timer;
-
-        Timer timer2;
+        List<RecPart> parts = new List<RecPart>();
         Ball ball;
         Ball ball2;
         Ball ball3;
@@ -27,7 +26,6 @@ namespace FillPic
         Rectangle bounds;
         Bitmap doubleBuffer;
         Graphics g;
-        private Bitmap renderBmp;
         static readonly int FRAMES_PER_SECOND = 30;
         public Bitmap CropImage(Bitmap source, Rectangle section)
         {
@@ -66,20 +64,14 @@ namespace FillPic
             timer.Start();
             //g = Graphics.FromImage(doubleBuffer);
             
-            
-            
-
             Bitmap source = Form1.ResizeImage(FillPic.Properties.Resources.background,800,600);
-            //Rectangle section = new Rectangle(new Point(100, 100), new Size(250, 250));
+            
             int x = 500, y = 500, width = 300, height = 100;
             Bitmap CroppedImage = source.Clone(new System.Drawing.Rectangle(x, y, width, height), source.PixelFormat);
             Bitmap CroppedImage2 = source.Clone(new System.Drawing.Rectangle(100, 100, width, height), source.PixelFormat);
             graphics.DrawImage(CroppedImage, 500, 500);
             graphics.DrawImage(CroppedImage2, 100, 100);
-            /*timer2 = new Timer();
-            timer2.Tick += new EventHandler(timer_Tick);
-            timer2.Interval = 1000 / FRAMES_PER_SECOND;
-            timer2.Start();*/
+            
         }
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
@@ -105,24 +97,7 @@ namespace FillPic
 
             return destImage;
         }
-        //Bitmap bip = new Bitmap(FillPic.Properties.Resources.background);
-        public override Image BackgroundImage
-        {
-            set
-            {
-                Image baseImage = FillPic.Properties.Resources.background;
-                
-                renderBmp = new Bitmap(Width, Height,
-                    System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
-                Graphics g = Graphics.FromImage(renderBmp);
-                g.DrawImage(baseImage, 0, 0, Width, Height);
-                g.Dispose();
-            }
-            get
-            {
-                return renderBmp;
-            }
-        }
+        
         void timer_Tick(object sender, EventArgs e)
         {
             
@@ -133,16 +108,17 @@ namespace FillPic
         {
             timer.Start();
             g = Graphics.FromImage(doubleBuffer);
-            //g.Clear(Color.White);
+            g.Clear(Color.White);
+            foreach(RecPart part in parts)
+            {
+                g.FillRectangle(brush, part.X, part.Y, 3, 3);
+            }
             g.DrawRectangle(pen, bounds);
             ball.Draw(brush, g);
             ball.Move();
             ball2.Draw(brush, g);
             ball2.Move();
             ball3.Draw(brush, g);
-
-
-           
             graphics.DrawImageUnscaled(doubleBuffer, 0, 0);
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -158,16 +134,15 @@ namespace FillPic
             
             g = Graphics.FromImage(doubleBuffer);
             //g.Clear(Color.White);
+            RecPart part = new RecPart();
+            part.X = ball3.X;
+            part.Y = ball3.Y;
+            parts.Add(part);
             g.DrawRectangle(pen, bounds);
             methodRandom();
-            //ball.Draw(brush, g);
-            //ball.Move();
-            //ball2.Draw(brush, g);
-            //ball2.Move();
-            //g.draw
-            g.FillRectangle(brush, ball3.X - 10, ball3.Y - 10, 50, 50);
-            ball3.Draw(brush, g);
             ball3.Move(e);
+            ball3.Draw(brush, g);
+            
             
             graphics.DrawImageUnscaled(doubleBuffer, 0, 0);
          }

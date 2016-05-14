@@ -33,3 +33,5 @@ Screenshots
 ![treta](https://cloud.githubusercontent.com/assets/18718511/15269543/7f63774c-1a02-11e6-99c8-b6c0a363d420.png)
 ![cetvrta](https://cloud.githubusercontent.com/assets/18718511/15269544/7f65e0ae-1a02-11e6-8c80-86461baba31a.png)
 ![petta](https://cloud.githubusercontent.com/assets/18718511/15269545/7f6a4a18-1a02-11e6-8693-0e2510919cdf.png)
+
+Изработено од Михаил Трајковски 137004, Стефан Митревски 131005, Михаела Ораческа 131058

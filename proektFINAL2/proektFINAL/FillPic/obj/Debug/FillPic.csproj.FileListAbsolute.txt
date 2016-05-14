@@ -57,3 +57,5 @@ C:\Users\name\Downloads\proektFINAL\proektFINAL\FillPic\obj\Debug\FillPic.Proper
 C:\Users\name\Downloads\proektFINAL\proektFINAL\FillPic\obj\Debug\FillPic.Start.resources
 C:\Users\name\Downloads\proektFINAL\proektFINAL\FillPic\obj\Debug\FillPic.Win.resources
 C:\Users\name\Downloads\proektFINAL\proektFINAL\FillPic\obj\Debug\FillPic.csproj.GenerateResource.Cache
+C:\Users\vladica\Documents\Visual Studio 2015\Projects\VPFinal\FillPicc\proektFINAL2\proektFINAL\FillPic\obj\Debug\FillPic.exe
+C:\Users\vladica\Documents\Visual Studio 2015\Projects\VPFinal\FillPicc\proektFINAL2\proektFINAL\FillPic\obj\Debug\FillPic.pdb
